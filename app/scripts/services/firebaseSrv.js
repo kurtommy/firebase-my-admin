@@ -48,7 +48,7 @@
           deferred.resolve(authData);
         })
         .catch(function(error) {
-          console.log(error);
+          //console.log(error);
           deferred.reject(error);
         });
       } catch (e) {

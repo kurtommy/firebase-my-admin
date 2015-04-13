@@ -54,12 +54,14 @@ angular.module('fireBaseMyAdmin')
             _this.firebase.result = data;
             console.log(_this.firebase.result);
         });
+        break;
       case 'firebaseArray':
         FirebaseQuery.getArray(firebaseInstance).then(function(data){
             _this.firebase.result = data;
             console.log('lenght',data.length);
             console.log(_this.firebase.result);
         });
+        break;
     }
 
   };
