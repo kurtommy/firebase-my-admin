@@ -1,0 +1,99 @@
+<div class="row">
+  <div class="col-sm-12">
+    <alert ng-if="fbma.firebase.error.message" type="{{fbma.firebase.error.type}}" close="fbma.closeAlert()">{{fbma.firebase.error.message}}</alert>
+  </div>
+</div>
+
+<div class="row">
+  <!-- {{fbma.firebase}} -->
+  <div class="col-sm-5">
+    <div class="form-group">
+      <label for="">Firebase URL</label>
+      <input ng-model="fbma.firebase.URL" type="text" class="form-control" id="firebaseUrl" placeholder="{{fbma.firebase.demoURL}}">
+    </div>
+    <div class="">
+      <a href="{{fbma.firebase.URL}}" target="_blank">{{fbma.firebase.URL}}</a>
+    </div>
+  </div>
+  <div class="col-sm-5">
+    <div class="form-group">
+      <label for="">Auth (uid or Secret key)</label>
+      <input ng-model="fbma.firebase.authKey" type="text" class="form-control" id="firebaseAuthKey" placeholder="{{fbma.firebase.demoAuthKey}}">
+    </div>
+  </div>
+  <div class="col-sm-1">
+    <div class="form-group">
+      <label for="">&nbsp;</label><br/>
+      <a ng-click="fbma.login()" class="btn btn-default">Login</a>
+    </div>
+  </div>
+  <div class="col-sm-1">
+    <div class="form-group">
+      <label for="">&nbsp;</label><br/>
+      <span ng-show="fbma.firebase.logged" class="glyphicon glyphicon-ok statusIcon green" aria-hidden="true"></span>
+      <span ng-show="!fbma.firebase.logged" class="glyphicon glyphicon-remove statusIcon red" aria-hidden="true"></span>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-12">
+    <h4>Firebase Path</h4>
+    <div class="input-group">
+      <span class="input-group-addon" id="firbasePath" ng-bind-html="fbma.firebase.URL"></span>
+      <input ng-model="fbma.firebase.path" type="text" class="form-control" placeholder="root node (ex users)" aria-describedby="firbasePath">
+    </div>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group">
+      <h4>Firebase Query</h4>
+      <input ng-model="fbma.firebase.query" type="text" class="form-control" placeholder="orderByChild(), orderByKey(), orderByValue(),orderByPriority() limitToFirst(), limitToLast(), startAt(), endAt(), and equalTo()" aria-describedby="firbaseQuery">
+    </div>
+    <div class="pull-right">
+      <a href="https://www.firebase.com/docs/web/guide/retrieving-data.html#section-queries" target="_blank">Official query doc</a>
+    </div>
+  </div>
+</div>
+
+<br/>
+<div class="row">
+  <div class="col-sm-3">
+    <h4>Action Type</h4>
+    <label class="radio-inline">
+      <input ng-model="fbma.firebase.actionType" type="radio" name="firebaseActionType" id="firebaseActionType1" value="firebaseObject"> firebaseObject
+    </label>
+    <label class="radio-inline">
+      <input ng-model="fbma.firebase.actionType" type="radio" name="firebaseActionType" id="firebaseActionType2" value="firebaseArray"> firebaseArray
+    </label>
+  </div>
+  <div class="col-sm-9">
+    <h4>Json data</h4>
+    <textarea ng-model="fbma.firebase.json" class="form-control" rows="3"></textarea>
+  </div>
+</div>
+
+<br/>
+<div class="row">
+
+</div>
+<br/>
+<div class="row">
+  <div class="col-sm-12">
+    <button ng-click="fbma.execute()" type="button" class="btn btn-primary pull-right">Execute</button>
+    <button ng-click="fbma.reset()" type="button" class="btn btn-default pull-right hide">Reset</button>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-sm-12">
+    <div id="firebaseResult">
+      <!-- <json-tree json="fbma.firebase.result" node='fbma.nodeOptions'></json-tree> -->
+      <json-formatter open="1" json="fbma.firebase.result"></json-formatter>
+    </div>
+  </div>
+</div>

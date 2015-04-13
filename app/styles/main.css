@@ -1,0 +1,22 @@
+#firebaseResult{
+  background:#EEE;
+  border:solid 1px #CCC;
+  min-height:100px;
+}
+
+.statusIcon{
+  margin-top:8px;
+  font-size:18px;
+}
+
+.green{
+  color:#0C0;
+}
+
+.red{
+  color:red;
+}
+
+.footer{
+  margin-top:20px;
+}
